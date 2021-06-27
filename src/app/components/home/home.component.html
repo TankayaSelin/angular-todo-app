@@ -1,0 +1,74 @@
+<div class="page home">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <h2 class="page-title">
+          Todo List App
+        </h2>
+      </div>
+      <div class="col-12 col-md-6 d-flex align-items-center addNewTodoContainer">
+        <div>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Yapılacak yeni madde ekle" #newTodo>
+          </mat-form-field>
+        </div>
+        <div>
+          <button mat-raised-button color="primary" type="submit" (click)="addTodo(newTodo)">Ekle</button>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <mat-card>
+          <div class="toolsContainer">
+            <div>
+              <form class="example-form">
+                <div class="d-flex align-content-center">
+                  <div>
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Ara" type="text" ng-model="test" #todo>
+                    </mat-form-field>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <button mat-raised-button color="primary" type="submit" (click)="searchTodo(todo)">Ara</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div>
+              <select (change)="onChange($event.target, todo)">
+                <option value=""></option>
+                <option *ngFor="let select of selections" [value]="select.value">
+                  {{select.viewValue}}
+                </option>
+              </select>
+            </div>
+            <div>
+              <button mat-raised-button color="success" type="submit" (click)="sortTodo()">Sirala</button>
+            </div>
+          </div>
+
+
+          <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)" ng-app="myApp"
+               ng-controller="namesCtrl">
+            <div *ngFor="let item of todos; let i = index" class="example-box {{item.completed ? 'done' : ''}}"
+                 cdkDrag>
+              <div class="{{item.completed ? 'text-decoration-line-through' : ''}}">{{item.title}} </div>
+              <fa-icon [icon]="faTrash" (click)="deleteTodo(i, todo)" id="trashIcon"></fa-icon>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <!--  <mat-paginator [length]=this.todos.length-->
+  <!--                 [pageSize]="20"-->
+  <!--                 [pageSizeOptions]="[5, 10, 25, 100]">-->
+  <!--  </mat-paginator>-->
+</div>
+
+
+
+
+
+

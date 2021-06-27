@@ -1,1 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body{
+  background: #f3f3f3;
+  padding: 50px 0;
+}
+
+.page{
+  &.home {
+    .addNewTodoContainer{
+      justify-content: flex-end;
+    }
+    .toolsContainer{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}
+
+.example-form {
+  .example-full-width{
+    width: 100%;
+    margin-right: 5px;
+  }
+}
+
+.mat-form-field-infix{
+  //width: 280px !important;
+}
+
+.done{
+  background: #f5f5f5 !important;
+}
+
+#trashIcon{
+  color: red;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px){
+  .page{
+    &.home {
+      .addNewTodoContainer{
+        justify-content: center;
+      }
+      .mat-form-field-infix{
+        width: 100% !important;
+      }
+      .toolsContainer{
+        display: block;
+      }
+    }
+  }
+}
